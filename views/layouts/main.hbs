@@ -17,7 +17,15 @@
   {{{ body }}}
 
   <!-- include javascript files here -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="/javascripts/jquery-3.3.1.js"></script>
+  <script src="/javascripts/bootstrap.js"></script>
   <script src="/javascripts/generateUrl.js"></script>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 </body>
 
 </html>

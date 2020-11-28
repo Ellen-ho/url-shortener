@@ -24,13 +24,13 @@
       <div class="form-group">
         <a href="{{shortUrl}}" target="blank" class="short-url">{{shortUrl}}</a>
         &nbsp;
-        <button type="button" onclick="copyLink()" class="btn btn-success">
+        <button type="button" onclick="copyLink()" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Copy URL">
           <i class="far fa-copy before-copy"></i>
           <span class="copied" style="display: none"><i class="fas fa-check-circle"></i> Copied!</span>
         </button>
       </div>
       <div class="text-center">
-        <a href="/" class="btn btn-secondary">Add Other URL</a>
+        <a href="/" class="btn btn-secondary">Shorten Other URL</a>
       </div>
       {{/if}}
     </div>
