@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.card {
+    width:40%;
+}
+
+.link {
+    padding: 20px 0;
+}
+
+.link i {
+    font-size: 6rem;
+}
+
+.alert-warning {
+    color: rgb(92, 92, 92);
+}

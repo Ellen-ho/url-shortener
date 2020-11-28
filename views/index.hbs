@@ -1,21 +1,54 @@
-<form action="/" method="POST" class="short-input">
-  <h2>URL Shortener</h2>
-  <div class="link-img">
-    LINK
-  </div>
-  <div class="form-group">
-    <input type="url" class="form-control" name="originUrl" placeholder="Input URL here" required>
-  </div>
-  {{#unless shortUrl}}
-  <div class="form-group">
-     <button type="submit" class="btn btn-primary">Shorten</button>
-  </div>
-  {{/unless}}
-  {{#if shortUrl}}
-  <h5>Success! Please use this link:</h5>
-  <a href="{{shortUrl}}" target="blank">{{shortUrl}}</a>
-  <div class="text-center">
-    <a href="/new" class="btn">新增其他網址</a>
-  </div>
-  {{/if}}
-</form>
+
+<div class="wrapper">
+  <form action="/" method="POST" class="card">
+    <div class="card-body text-center">  
+      <h2>URL Shortener</h2>
+      <div class="link">
+        <i class="fas fa-link"></i>
+      </div>
+      {{#unless shortUrl}}
+      <div class="form-group">
+        <input type="url" class="form-control" name="originUrl" placeholder="Input URL here" required>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Shorten</button>
+      </div>
+      {{/unless}}
+      {{#if error}}
+      <div class="alert alert-warning">
+        <i class="fas fa-exclamation-circle"></i> {{error}}
+      </div>
+      {{/if}}
+      {{#if shortUrl}}
+      <h5>Success! Please use this link:</h5>
+      <div class="form-group">
+        <a href="{{shortUrl}}" target="blank" class="short-url">{{shortUrl}}</a>
+        &nbsp;
+        <button type="button" onclick="copyLink()" class="btn btn-success">
+          <i class="far fa-copy before-copy"></i>
+          <span class="copied" style="display: none"><i class="fas fa-check-circle"></i> Copied!</span>
+        </button>
+      </div>
+      <div class="text-center">
+        <a href="/" class="btn btn-secondary">Add Other URL</a>
+      </div>
+      {{/if}}
+    </div>
+  </form>
+</div>
+
+<script>
+  function copyLink (){
+    const url = document.querySelector('.short-url').innerText;
+    const tempInput = document.createElement('input')
+    tempInput.type = 'text'
+    tempInput.value = url
+    document.body.appendChild(tempInput)
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    // UI變化
+    document.querySelector('.before-copy').style.display = 'none'
+    document.querySelector('.copied').style.display = 'inline-block'
+  }
+</script>

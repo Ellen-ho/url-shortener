@@ -14,6 +14,7 @@ function generateUrl (length) {
   while (url.length < length) {
     url += sample(collection)
   }
+  return url
 }
 
 module.exports = generateUrl
