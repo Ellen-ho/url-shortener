@@ -1,0 +1,21 @@
+<form action="/" method="POST" class="short-input">
+  <h2>URL Shortener</h2>
+  <div class="link-img">
+    LINK
+  </div>
+  <div class="form-group">
+    <input type="url" class="form-control" name="originUrl" placeholder="Input URL here" required>
+  </div>
+  {{#unless shortUrl}}
+  <div class="form-group">
+     <button type="submit" class="btn btn-primary">Shorten</button>
+  </div>
+  {{/unless}}
+  {{#if shortUrl}}
+  <h5>Success! Please use this link:</h5>
+  <a href="{{shortUrl}}" target="blank">{{shortUrl}}</a>
+  <div class="text-center">
+    <a href="/new" class="btn">新增其他網址</a>
+  </div>
+  {{/if}}
+</form>
