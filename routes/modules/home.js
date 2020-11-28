@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT ? '' : ':3000'
 const generateUrl = require('../../public/javascripts/generateUrl')
 const Url = require('../../models/url')
 
@@ -32,7 +32,7 @@ router.post('/', (req, res) => {
   // 輸入空格就導回首頁
   if (originUrl === '') { res.redirect('/') }
 
-  const originHost = `${req.protocol}://${req.hostname}:${PORT}`
+  const originHost = `${req.protocol}://${req.hostname}${PORT}`
   // 尋找是否有儲存原連結
   Url.find({ originUrl: originUrl })
     .lean()
