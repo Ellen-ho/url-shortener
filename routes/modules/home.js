@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const PORT = process.env.PORT || 3000
 const generateUrl = require('../../public/javascripts/generateUrl')
-const Url = require('../../models/Url')
+const Url = require('../../models/url')
 
 // 進入 Index
 router.get('/', (req, res) => {
